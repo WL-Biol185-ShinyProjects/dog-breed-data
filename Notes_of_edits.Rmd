@@ -18,7 +18,7 @@ westminsterData <- read_excel("Westminster_data_clean.xlsx")
 
 Removing Owner column
 ```{r}
-westminsterData = subset(westminsterData, select = -c(Owner))
+westminsterData = subset(westminsterData, select = -c(Owner, Winner))
 ```
 
 Removing unneeded Columns from AKC Data
