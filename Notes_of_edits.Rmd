@@ -21,7 +21,7 @@ Removing Owner column
 westminsterData = subset(westminsterData, select = -c(Owner, Winner))
 ```
 
-Removing unneeded Columns from AKC Data
+Removing unneeded Columns from AKC Data and two dog breeds not relevant to our analysis
 ```{r}
-akcData = subset(akcData, select = -c(description, popularity, grooming_frequency_value, grooming_frequency_category, shedding_value, shedding_category, energy_level_value, trainability_value, trainability_category, demeanor_value))
+akcData = subset(akcData, select = -c(description, popularity, grooming_frequency_value, grooming_frequency_category, shedding_value, shedding_category, energy_level_value, trainability_value, trainability_category, demeanor_value, energy_level_category, demeanor_category))
 ```
