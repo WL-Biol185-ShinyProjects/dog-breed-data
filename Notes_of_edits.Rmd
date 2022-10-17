@@ -9,4 +9,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
+Removing Owner column
+```{r}
+westminsterData = subset(westminsterData, select = -c(Owner))
+```
 
