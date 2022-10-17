@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
-Creating variables for data
+Creating variables for clean data
 ```{r}
 library(readxl)
 akcData <- read.csv("akc-data-latest.csv")
