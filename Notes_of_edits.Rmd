@@ -30,6 +30,6 @@ akcData = subset(akcData, select = -c(description, popularity, grooming_frequenc
 
 Removing unneeded Row from AKC Data
 ```{r}
-akcData <- akcData[-c(237), ]
+akcData <- akcData[-c(237, 17, 56, 245), ]
 ```
 
