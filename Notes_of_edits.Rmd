@@ -33,3 +33,15 @@ Removing unneeded Row from AKC Data
 akcData <- akcData[-c(237), ]
 ```
 
+Changing value 
+```{r}
+westminsterData[westminsterData=="Fox Terrier (Smooth)"] <- "Fox Terrier, Smooth"
+westminsterData[westminsterData=="Fox Terrier (Wire)"] <- "Fox Terrier, Wire"
+westminsterData[westminsterData=="Beagle (15 Inch)"] <- "Beagle"
+westminsterData[westminsterData=="Spaniel (Cocker) Black[B]"] <- "English Cocker Spaniel"
+westminsterData[westminsterData=="Spaniel (Cocker) ASCOB[B]"] <- "English Cocker Spaniel"
+gsubstep1<-gsub(" (", ", ", x = westminsterData$Breed, fixed = TRUE)
+gsub(")" ,"", x = gsubstep1, fixed = TRUE)
+```
+
+
