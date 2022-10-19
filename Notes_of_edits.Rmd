@@ -12,8 +12,10 @@ knitr::opts_chunk$set(echo = TRUE)
 Creating variables for clean data
 ```{r}
 library(readxl)
+library(jsonlite)
 akcData <- read.csv("akc-data-latest.csv")
 westminsterData <- read_excel("Westminster_data_clean.xlsx")
+dogOriginData <- fromJSON("dog-breeds.json")
 ```
 
 Removing Owner column
@@ -29,11 +31,5 @@ akcData = subset(akcData, select = -c(description, popularity, grooming_frequenc
 Removing unneeded Row from AKC Data
 ```{r}
 akcData <- akcData[-c(237), ]
-```
-
-Collecting Origin Data for Map from JSON file (GitHub)
-```{r}
-library(jsonlite)
-df <- fromJSON("dog-breeds.json")
 ```
 
