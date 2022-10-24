@@ -76,12 +76,12 @@ tidywestminster <- tidywestminster[-c(17), ]
 
 Joining the tidywestminter with coordinates
 ```{r}
+tidywestminster[tidywestminster=="German Shepherd Dog"] <-"German Shepherd Dog"
 tidywestminster = subset(tidywestminster, select = -c(origin))
 tidywestminster[tidywestminster=="Germany, France"] <- "Germany"
 tidywestminster[tidywestminster=="Germany, Poland"] <- "Poland"
 tidywestminster[tidywestminster=="Spain, Belgium, France"] <- "France"
 tidywestminster[tidywestminster=="Spain, Belgium"] <- "Spain"
 finalDogData <- left_join(tidywestminster, breedCoordinates, by = c("Breed"))
-
 ```
 
