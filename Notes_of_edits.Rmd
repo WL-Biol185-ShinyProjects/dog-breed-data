@@ -56,4 +56,14 @@ westminsterData[westminsterData=="Setter (English)"] <- "English Setter"
 westminsterData[westminsterData=="Spaniel (English Springer)"] <- "English Springer Spaniel"
 ```
 
+Changing column name to join
+```{r}
+colnames(dogOriginData)[1] <- "Breed"
+```
+
+Joining the two tables into one
+```{r}
+tidywestminster <- left_join(westminsterData, dogOriginData, by = c("Breed"))
+```
+
 
