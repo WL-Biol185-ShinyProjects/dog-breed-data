@@ -62,10 +62,19 @@ Changing column name to join
 colnames(dogOriginData)[1] <- "Breed"
 ```
 
-Joining the two tables into one
+Joining dog Origin data with westminster winners
 ```{r}
 library(tidyverse)
 tidywestminster <- left_join(westminsterData, dogOriginData, by = c("Breed"))
+```
+
+Joining the tidywestminter with coordinates
+```{r}
+tidywestminster[tidywestminster=="Germany, France"] <- "Germany"
+tidywestminster[tidywestminster=="Germany, Poland"] <- "Poland"
+tidywestminster[tidywestminster=="Spain, Belgium, France"] <- "France"
+tidywestminster[tidywestminster=="Spain, Belgium"] <- "Spain"
+#finalDogData <- left_join(tidywestminster, breedCoordinates, by = c("Breed"))
 ```
 
 Deleting row for tidy data
