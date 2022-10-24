@@ -63,6 +63,7 @@ colnames(dogOriginData)[1] <- "Breed"
 
 Joining the two tables into one
 ```{r}
+library(tidyverse)
 tidywestminster <- left_join(westminsterData, dogOriginData, by = c("Breed"))
 ```
 
