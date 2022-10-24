@@ -68,17 +68,20 @@ library(tidyverse)
 tidywestminster <- left_join(westminsterData, dogOriginData, by = c("Breed"))
 ```
 
+Deleting row for tidy data
+```{r}
+tidywestminster <- tidywestminster[-c(17), ]
+```
+
+
 Joining the tidywestminter with coordinates
 ```{r}
+tidywestminster = subset(tidywestminster, select = -c(origin))
 tidywestminster[tidywestminster=="Germany, France"] <- "Germany"
 tidywestminster[tidywestminster=="Germany, Poland"] <- "Poland"
 tidywestminster[tidywestminster=="Spain, Belgium, France"] <- "France"
 tidywestminster[tidywestminster=="Spain, Belgium"] <- "Spain"
-#finalDogData <- left_join(tidywestminster, breedCoordinates, by = c("Breed"))
-```
+finalDogData <- left_join(tidywestminster, breedCoordinates, by = c("Breed"))
 
-Deleting row for tidy data
-```{r}
-tidywestminster <- tidywestminster[-c(17), ]
 ```
 
