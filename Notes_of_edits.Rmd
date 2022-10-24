@@ -33,15 +33,27 @@ Removing unneeded Row from AKC Data
 akcData <- akcData[-c(237, 17, 56, 245), ]
 ```
 
-Changing value 
+Changing values in westminster Dataset to match origin. gsub() didn't help because often order was flipped
 ```{r}
 westminsterData[westminsterData=="Fox Terrier (Smooth)"] <- "Fox Terrier, Smooth"
 westminsterData[westminsterData=="Fox Terrier (Wire)"] <- "Fox Terrier, Wire"
 westminsterData[westminsterData=="Beagle (15 Inch)"] <- "Beagle"
 westminsterData[westminsterData=="Spaniel (Cocker) Black[B]"] <- "English Cocker Spaniel"
 westminsterData[westminsterData=="Spaniel (Cocker) ASCOB[B]"] <- "English Cocker Spaniel"
-gsubstep1<-gsub(" (", ", ", x = westminsterData$Breed, fixed = TRUE)
-gsub(")" ,"", x = gsubstep1, fixed = TRUE)
+westminsterData[westminsterData=="Spaniel (Irish Water)"] <- "Irish Water Spaniel"
+westminsterData[westminsterData=="Bichon Frise"] <- "Bichon Frisé"
+westminsterData[westminsterData=="Bull Terrier (White)"] <- "Bull Terrier"
+westminsterData[westminsterData=="Collie (Rough)"] <- "Collie, Rough"
+westminsterData[westminsterData=="Poodle (Toy)"] <- "Poodle"
+westminsterData[westminsterData=="Spaniel (Cocker) Parti"] <- "English Cocker Spaniel"
+westminsterData[westminsterData=="Spaniel (Clumber)"] <- "English Cocker Spaniel"
+westminsterData[westminsterData=="Poodle (Standard)"] <- "Poodle"
+westminsterData[westminsterData=="Poodle (Miniature)"] <- "Poodle"
+westminsterData[westminsterData=="Bull Terrier (Colored)"] <- "Bull Terrier"
+westminsterData[westminsterData=="German Shepard"] <- "German Shepard Dog"
+westminsterData[westminsterData=="Pointer (German Shorthaired)"] <- "Pointer"
+westminsterData[westminsterData=="Setter (English)"] <- "English Setter"
+westminsterData[westminsterData=="Spaniel (English Springer)"] <- "English Springer Spaniel"
 ```
 
 
