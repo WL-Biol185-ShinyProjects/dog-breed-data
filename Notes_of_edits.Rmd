@@ -66,5 +66,7 @@ Joining the two tables into one
 library(tidyverse)
 tidywestminster <- left_join(westminsterData, dogOriginData, by = c("Breed"))
 ```
-
+```{r}
+tidywestminster <- tidywestminster[-c(17), ]
+```
 
