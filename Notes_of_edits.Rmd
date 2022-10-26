@@ -62,7 +62,7 @@ Changing column name to join
 colnames(dogOriginData)[1] <- "Breed"
 ```
 
-Joining dog Origin data with westminster winners
+Joining dog Origin data with Westminster winners
 ```{r}
 library(tidyverse)
 tidywestminster <- left_join(westminsterData, dogOriginData, by = c("Breed"))
@@ -74,14 +74,17 @@ tidywestminster <- tidywestminster[-c(17), ]
 ```
 
 
-Joining the tidywestminter with coordinates
+Joining the Tidywestminter with coordinates
 ```{r}
-tidywestminster[tidywestminster=="German Shepherd Dog"] <-"German Shepherd Dog"
 tidywestminster = subset(tidywestminster, select = -c(origin))
 tidywestminster[tidywestminster=="Germany, France"] <- "Germany"
 tidywestminster[tidywestminster=="Germany, Poland"] <- "Poland"
 tidywestminster[tidywestminster=="Spain, Belgium, France"] <- "France"
 tidywestminster[tidywestminster=="Spain, Belgium"] <- "Spain"
 finalDogData <- left_join(tidywestminster, breedCoordinates, by = c("Breed"))
+finalDogData$origin[is.na(finalDogData$origin)] <- "Germany"
+finalDogData$Coordinates[is.na(finalDogData$Coordinates)] <- "52.520008, 13.404954"
+finalDogData$Latitude[is.na(finalDogData$Latitude)] <- 52.52001
+finalDogData$Longitude[is.na(finalDogData$Longitude)] <- 13.404954
 ```
 
