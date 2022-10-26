@@ -1,5 +1,4 @@
 library(leaflet)
 
+leaflet(data=finalDogData) %>% addTiles() %>% addMarkers(popup = ~Breed) 
 
-
-leaflet(data = westminsterData) %>% addTiles()
