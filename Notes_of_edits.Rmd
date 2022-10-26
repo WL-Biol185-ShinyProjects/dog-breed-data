@@ -88,3 +88,9 @@ finalDogData$Latitude[is.na(finalDogData$Latitude)] <- 52.52001
 finalDogData$Longitude[is.na(finalDogData$Longitude)] <- 13.404954
 ```
 
+Turning links into html
+```{r}
+paste('<img src="' , finalDogData$imageURL, '" />')
+
+```
+
