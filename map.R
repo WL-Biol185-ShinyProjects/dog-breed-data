@@ -1,5 +1,6 @@
 library(leaflet)
 
+
 leaflet(data=finalDogData) %>% 
   addTiles() %>% 
   addMarkers(
@@ -14,4 +15,9 @@ leaflet(data=finalDogData) %>%
       height=200
       />'), 
 )
+<<<<<<< HEAD
+=======
+})
+
+>>>>>>> 45c0329216240fc867bd4ee99cec44b92b7e3231
 
