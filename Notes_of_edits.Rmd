@@ -16,7 +16,7 @@ library(jsonlite)
 akcData <- read.csv("akc-data-latest.csv")
 westminsterData <- read_excel("Westminster_data_clean.xlsx")
 dogOriginData <- fromJSON("dog-breeds.json")
-breedCoordinates <- read_excel("Breedcoordinates3.xlsx")
+breedCoordinates <- read_excel("Breedcoordinates1.xlsx")
 ```
 
 Removing Owner column
