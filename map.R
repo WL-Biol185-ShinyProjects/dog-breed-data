@@ -1,5 +1,6 @@
 library(leaflet)
 
+
 leaflet(data=finalDogData) %>% 
   addTiles() %>% 
   addMarkers(
@@ -12,6 +13,6 @@ leaflet(data=finalDogData) %>%
       height=200
       />'), 
 )
-
+})
 
 
