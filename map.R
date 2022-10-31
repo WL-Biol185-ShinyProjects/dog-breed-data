@@ -13,6 +13,5 @@ leaflet(data=finalDogData) %>%
       height=200
       />'), 
 )
-})
 
 
