@@ -1,15 +1,19 @@
 library(shiny)
 
-# Define UI for application that draws a histogram
-fluidPage(
-  
-  # Application title
-  titlePanel("Westminster Dog Show Data"),
-  
-  mainPanel(
-    leafletOutput("map"))
-    
-    
+# Creating Navigation bar
+navbarPage("Westminster Dog Show Data",
+           tabPanel("Map",
+                    titlePanel("Westminster Dog Show Winners and their Origins"),
+                    mainPanel(
+                      leafletOutput("map"))
+                    
+                    ),
+           tabPanel("Winners",
+                    "Winner dropdowm will go here"
+                    ),
+           tabPanel("About",
+                    "About information")
+           
     )
   
 
