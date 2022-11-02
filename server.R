@@ -25,11 +25,11 @@ function(input, output) {
   })
   
   output$plot <- renderPlot({
-    Breed <- reactive({
-      switch(input$Breed,
-             "Breed" = finalDogData$Breed)
+    #Breed <- reactive({
+     #switch(input$Breed,
+             #"Breed" = finalDogData$Breed)
+    #})
+   ggplot(finalDogData, aes(Year, Breed, col=Breed)) + geom_point()
     })
-    ggplot(finalDogData, aes(Year, Breed, col=Breed)) + geom_point()
-  })
   
     }
