@@ -1,5 +1,6 @@
 library(shiny)
 library(leaflet)
+library(ggplot2)
 
 # Define server logic required to draw a histogram
 function(input, output) {
@@ -20,7 +21,11 @@ function(input, output) {
       width=200
       height=200
       />'), 
-      )
+        )
+  })
+  
+  output$plot <- renderPlot({
+    ggplot(finalDogData, aes(Year, Breed, col=Breed)) + geom_point()
   })
   
     }

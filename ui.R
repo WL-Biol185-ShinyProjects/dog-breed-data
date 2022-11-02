@@ -9,6 +9,7 @@ navbarPage("Westminster Dog Show Data",
                     
                     ),
            tabPanel("Winners",
+                    mainPanel(plotOutput("plot")),
                     "Winner dropdowm will go here"
                     ),
            tabPanel("About",
