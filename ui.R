@@ -1,4 +1,7 @@
 library(shiny)
+library(leaflet)
+library(tidyverse)
+library(shinyWidgets)
 
 # Creating Navigation bar
 navbarPage("Westminster Dog Show Data",
@@ -10,11 +13,15 @@ navbarPage("Westminster Dog Show Data",
                     ),
            tabPanel("Winners",
                     mainPanel(plotOutput("plot")),
-                    "Winner dropdowm will go here"
-                    ),
+                    sidebarPanel(
+                      pickerInput("Breed", "Filter by Breed",
+                                  choices = finalDogData$Breed, multiple = T))
+                    )
+                    ,
            tabPanel("About",
                     "About information")
            
-    )
-  
+    
 
+
+)
