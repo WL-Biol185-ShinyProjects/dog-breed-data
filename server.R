@@ -1,6 +1,7 @@
 library(shiny)
 library(leaflet)
 library(ggplot2)
+library(dplyr)
 
 # Define server logic required to draw a histogram
 function(input, output) {
@@ -25,10 +26,11 @@ function(input, output) {
   })
   
   output$plot <- renderPlot({
-    dogBreed <- input$dogBreed
-    yearsWinners <- finalDogData[, 1]
-    
-   ggplot(finalDogData, aes(yearsWinners, dogBreed, col=Breed)) + geom_point(show.legend = FALSE) + scale_x_continuous(breaks = round(seq(min(finalDogData$Year), max(finalDogData$Year), by = 5)))
+    dogBreeds <- reactive({
+      req(input$dogBreed)
+      filter(finalDogData, Breed %in% input$dogBreed)
+      })
+   ggplot(dogBreeds(), aes(Year, Breed, col=Breed)) + geom_point(show.legend = FALSE) + scale_x_continuous(breaks = round(seq(min(finalDogData$Year), max(finalDogData$Year), by = 5)))
   })
 
     }

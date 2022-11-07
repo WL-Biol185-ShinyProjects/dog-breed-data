@@ -5,6 +5,8 @@ library(shinyWidgets)
 library(shinythemes)
 
 # Creating Navigation bar
+fluidPage(
+
 navbarPage("Westminster Dog Show Data",
            theme = shinytheme("sandstone"),
            tabPanel("Map",
@@ -26,4 +28,4 @@ navbarPage("Westminster Dog Show Data",
     
 
 
-)
+))
