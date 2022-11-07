@@ -2,9 +2,11 @@ library(shiny)
 library(leaflet)
 library(tidyverse)
 library(shinyWidgets)
+library(shinythemes)
 
 # Creating Navigation bar
 navbarPage("Westminster Dog Show Data",
+           theme = shinytheme("sandstone"),
            tabPanel("Map",
                     titlePanel("Westminster Dog Show Winners and their Origins"),
                     mainPanel(
