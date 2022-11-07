@@ -8,7 +8,21 @@ library(shinythemes)
 fluidPage(
 
 navbarPage("Westminster Dog Show Data",
-           theme = shinytheme("sandstone"),
+           tags$style(HTML(".navbar.navbar-default {
+                          background-color: #52247f !important;
+                          
+           }    
+           
+           .navbar.navbar-default .navbar-nav {
+           color: #f9f8fc;
+           
+           }
+           
+           .navbar.navbar-default .navbar-brand {
+            color: #f9f8fc;
+           }
+                               }")),
+           theme = bs_theme(bootswatch = "pulse"),
            tabPanel("Map",
                     titlePanel("Westminster Dog Show Winners and their Origins"),
                     mainPanel(
