@@ -14,8 +14,8 @@ navbarPage("Westminster Dog Show Data",
            tabPanel("Winners",
                     mainPanel(plotOutput("plot")),
                     sidebarPanel(
-                      pickerInput("Breed", "Filter by Breed",
-                                  choices = finalDogData$Breed, multiple = T))
+                      selectInput("dogBreed", "Filter by Breed",
+                                  choices = finalDogData$Breed, multiple = TRUE))
                     )
                     ,
            tabPanel("About",

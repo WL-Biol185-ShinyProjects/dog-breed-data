@@ -25,12 +25,12 @@ function(input, output) {
   })
   
   output$plot <- renderPlot({
-    #Breed <- reactive({
-     #switch(input$Breed,
-             #"Breed" = finalDogData$Breed)
-    #})
-   ggplot(finalDogData, aes(Year, Breed, col=Breed)) + geom_point(show.legend = FALSE) + scale_x_continuous(breaks = round(seq(min(finalDogData$Year), max(finalDogData$Year), by = 5)))
+    dogBreed <- input$dogBreed
+    yearsWinners <- finalDogData[, 1]
+    
+   ggplot(finalDogData, aes(yearsWinners, dogBreed, col=Breed)) + geom_point(show.legend = FALSE) + scale_x_continuous(breaks = round(seq(min(finalDogData$Year), max(finalDogData$Year), by = 5)))
+  })
 
-    })
-  
     }
+  
+    
