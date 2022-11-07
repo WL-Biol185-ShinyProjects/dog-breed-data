@@ -19,7 +19,7 @@ navbarPage("Westminster Dog Show Data",
                     mainPanel(plotOutput("plot")),
                     sidebarPanel(
                       selectInput("dogBreed", "Filter by Breed",
-                                  choices = finalDogData$Breed, multiple = TRUE))
+                                  choices = finalDogData$Breed, selected = finalDogData$Breed[9], multiple = TRUE))
                     )
                     ,
            tabPanel("About",
