@@ -94,3 +94,28 @@ paste('<img src="' , finalDogData$imageURL, '" />')
 
 ```
 
+Joining finalDogData with akc for height and weight characteristics
+```{r}
+akcData[akcData=="Smooth Fox Terrier"] <- "Fox Terrier, Smooth"
+akcData[akcData=="Wire Fox Terrier"] <- "Fox Terrier, Wire"
+akcData[akcData=="Beagle (15 Inch)"] <- "Beagle"
+akcData[akcData=="Spaniel (Cocker) Black[B]"] <- "English Cocker Spaniel"
+akcData[akcData=="Spaniel (Cocker) ASCOB[B]"] <- "English Cocker Spaniel"
+akcData[akcData=="Spaniel (Irish Water)"] <- "Irish Water Spaniel"
+akcData[akcData=="Bichon Frise"] <- "Bichon Frisé"
+akcData[akcData=="Bull Terrier (White)"] <- "Bull Terrier"
+akcData[akcData=="Collie"] <- "Collie, Rough"
+akcData[akcData=="Poodle (Toy)"] <- "Poodle"
+akcData[akcData=="Spaniel (Cocker) Parti"] <- "English Cocker Spaniel"
+akcData[akcData=="Spaniel (Clumber)"] <- "English Cocker Spaniel"
+akcData[akcData=="Poodle (Standard)"] <- "Poodle"
+akcData[akcData=="Poodle (Miniature)"] <- "Poodle"
+akcData[akcData=="Bull Terrier (Colored)"] <- "Bull Terrier"
+akcData[akcData=="German Shepherd"] <- "German Shepherd Dog"
+akcData[akcData=="Pointer (German Shorthaired)"] <- "Pointer"
+akcData[akcData=="Setter (English)"] <- "English Setter"
+akcData[akcData=="Spaniel (English Springer)"] <- "English Springer Spaniel"
+colnames(akcData)[1] <- "Breed"
+finalDogData2 <- left_join(finalDogData, akcData, by = c("Breed"))
+
+```
