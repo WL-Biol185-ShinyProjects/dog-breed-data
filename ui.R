@@ -3,6 +3,7 @@ library(leaflet)
 library(tidyverse)
 library(shinyWidgets)
 library(shinythemes)
+library(bslib)
 
 # Creating Navigation bar
 fluidPage(
@@ -22,7 +23,7 @@ navbarPage("Westminster Dog Show Data",
             color: #f9f8fc;
            }
                                }")),
-           theme = bs_theme(bootswatch = "pulse"),
+           theme = bs_theme(bootswatch = "flatly"),
            tabPanel("Map",
                     titlePanel("Westminster Dog Show Winners and their Origins"),
                     mainPanel(
