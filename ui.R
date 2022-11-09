@@ -24,10 +24,10 @@ navbarPage("Westminster Dog Show Data",
            }
                                }")),
            theme = bs_theme(bootswatch = "flatly"),
-           tabPanel("Map",
+           tabPanel("Map", 
                     titlePanel("Westminster Dog Show Winners and their Origins"),
-                    mainPanel(
-                      leafletOutput("map"))
+                    h4("instructions"),
+                      leafletOutput("map")
                     
                     ),
            tabPanel("Winners",
@@ -38,6 +38,9 @@ navbarPage("Westminster Dog Show Data",
                     )
                     ,
            tabPanel("About",
+                    titlePanel("Our story"),
+                    h4("learn about westminster"),
+                    p("hello"),
                     "About information")
            
     
