@@ -34,6 +34,11 @@ function(input, output) {
    ggplot(dogBreeds(), aes(Year, Breed)) + geom_point(show.legend = FALSE) + theme_hc() + ggtitle("TITLE") + scale_x_continuous(breaks = round(seq(min(finalDogData$Year), max(finalDogData$Year), by = 10)))
   })
 
+  
+  
+  output$winners <- renderPrint({
+    
+  })
     }
   
     
