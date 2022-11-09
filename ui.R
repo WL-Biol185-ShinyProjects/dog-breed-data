@@ -26,8 +26,8 @@ navbarPage("Westminster Dog Show Data",
            theme = bs_theme(bootswatch = "flatly"),
            tabPanel("Map", 
                     titlePanel("Westminster Dog Show Winners and their Origins"),
-                    h4("instructions"),
-                      leafletOutput("map")
+                    h5("Explore the origins of your favorite Westminster Dog Show Winners through this interactive map. Hover over the blue pins to preview the breed, and click into any pin to see a picture, the dog's origin, and group. Click and drag the map to see different areas, and zoom in to see more breeds."),
+                      leafletOutput("map"),
                     
                     ),
            tabPanel("Winners",
