@@ -116,6 +116,6 @@ akcData[akcData=="Pointer (German Shorthaired)"] <- "Pointer"
 akcData[akcData=="Setter (English)"] <- "English Setter"
 akcData[akcData=="Spaniel (English Springer)"] <- "English Springer Spaniel"
 colnames(akcData)[1] <- "Breed"
-finalDogData2 <- left_join(finalDogData, akcData, by = c("Breed"))
+breedComp <- left_join(finalDogData, akcData, by = c("Breed"))
 
 ```
