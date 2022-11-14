@@ -44,8 +44,12 @@ navbarPage("Westminster Dog Show Data",
                                   choices = finalDogData$Breed, selected = finalDogData$Breed[9], multiple = TRUE))
                     )
                     ,
-           tabPanel("Statistics",
-                      mainPanel(
+           tabPanel("Breed Specifications",
+                    titlePanel("Filter Winning Dogs by Breed Specifications"),
+                    h5("Use filters under each column to sort through the winners by year of win, breed, height, weight, life expectancy and group."),
+                    br(),
+                    br(),
+                     mainPanel(
                         DT::dataTableOutput("Dogs")
                       )
                     )
