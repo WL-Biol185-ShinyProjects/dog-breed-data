@@ -31,12 +31,16 @@ navbarPage("Westminster Dog Show Data",
                     
                     ),
            tabPanel("Winners",
+                    titlePanel("Browse Winning Dogs by Breed"),
+                    h5("Explore the history of the winners of the Westminster Dog Show from 1907 to 2017, selecting which breeds you would like to see. Click into the drop down, or type, to select which breeds you would like to see. Points on the plot will appear in the years that the selected breed(s) won."),
                     mainPanel(plotOutput("plot")),
                     sidebarPanel(
                       selectInput("dogBreed", "Filter by Breed",
                                   choices = finalDogData$Breed, selected = finalDogData$Breed[9], multiple = TRUE))
                     )
                     ,
+           tabPanel("Statistics"),
+           
            tabPanel("About",
                     titlePanel("Our story"),
                     h4("The Westminster Kennel Club organization began in 1877 with the mission of enhancing dogs’ lives, celebrating their companionship, promoting responsible dog ownership, and preserving breeds. The Westminster Kennel Club Dog Show is an all-breed conformation competition that began in 1948, making it the longest nationally televised like dog show.  "),
