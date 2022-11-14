@@ -122,3 +122,12 @@ colnames(breedComp)[13] <- "Weight"
 colnames(breedComp)[15] <- "Life Expectancy"
 colnames(breedComp)[16] <- "Group"
 ```
+
+Rounding numbers to make them look pretty
+```{r}
+is.num <- sapply(breedComp, is.numeric)
+breedComp[is.num] <- lapply(breedComp[is.num], round, 1)
+```
+
+
+

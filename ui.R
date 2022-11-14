@@ -4,6 +4,7 @@ library(tidyverse)
 library(shinyWidgets)
 library(shinythemes)
 library(bslib)
+library(DT)
 
 # Creating Navigation bar
 fluidPage(
