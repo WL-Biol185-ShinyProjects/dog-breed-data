@@ -26,8 +26,13 @@ navbarPage("Westminster Dog Show Data",
            theme = bs_theme(bootswatch = "flatly"),
            tabPanel("Map", 
                     titlePanel("Westminster Dog Show Winners and their Origins"),
+                    
                     h5("Explore the origins of your favorite Westminster Dog Show Winners through this interactive map. Hover over the blue pins to preview the breed, and click into any pin to see a picture, the dog's origin, and group. Click and drag the map to see different areas, and zoom in to see more breeds."),
-                      leafletOutput("map"),
+                    br(),
+                    br(),
+                    br(),
+                   
+                    leafletOutput("map"),
                     
                     ),
            tabPanel("Winners",
@@ -40,27 +45,12 @@ navbarPage("Westminster Dog Show Data",
                     )
                     ,
            tabPanel("Statistics",
-                    sidebarLayout(
-                      sidebarPanel(
-                        sliderInput("Weight",
-                                    "Select Dog Weight in kgs:",
-                                    min = 2,
-                                    max = 68,
-                                    value = c(2,68)
-                                    ),
-                        sliderInput("Height",
-                                    "Select Dog Height in cms",
-                                    min= 17,
-                                    max=82,
-                                    value = c(17,81)
-                                    )
-                      ),
                       mainPanel(
-                        plotOutput("Dogs")
+                        DT::dataTableOutput("Dogs")
                       )
                     )
                     
-           ),
+           ,
            
            tabPanel("About",
                     titlePanel("Our story"),

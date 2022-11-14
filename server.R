@@ -3,6 +3,7 @@ library(leaflet)
 library(ggplot2)
 library(dplyr)
 library(ggthemes)
+library(DT)
 
 # Define server logic required to draw a histogram
 function(input, output) {
@@ -36,10 +37,9 @@ function(input, output) {
 
   
   
-  output$Dogs <- renderTable({
+  output$Dogs <- renderDataTable(breedComp[c(1,2,11,13,15,16)], filter = 'top'
     
-    
-  })
+  )
   
 
     }
