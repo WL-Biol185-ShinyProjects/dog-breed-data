@@ -65,17 +65,19 @@ navbarPage("Westminster Dog Show Data",
            tabPanel("About",
                     titlePanel("Our story"),
                     h4("The Westminster Kennel Club organization began in 1877 with the mission of enhancing dogs’ lives, celebrating their companionship, promoting responsible dog ownership, and preserving breeds. The Westminster Kennel Club Dog Show is an all-breed conformation competition that began in 1948, making it the longest nationally televised live dog show.  "),
-                    h4("As dog lovers themselves, Grace, Mary Camilla, Jill, and John decided to bring to life a collection of data from both the American Kennel Club and the Westminster Kennel Club Dog Show.  "),
+                    h4("As dog lovers themselves, Grace, John, Jill, and Mary Camilla decided to bring to life a collection of data from both the American Kennel Club and the Westminster Kennel Club Dog Show.  "),
                     h4("We hope you all enjoy exploring the visualizations as much as we enjoyed creating them!"),
                     br(),
                     br(),
-                    fluidRow(column(4, img(src = "IMG_6464.jpg",
+                    fluidRow(column(3, img(src = "IMG_6464.jpg",
                                            width = "300px", height = "300px")),
-                             column(4,  img(src = "thumbnail_IMG_8312.jpg",
+                             column(3,  img(src = "thumbnail_IMG_8312.jpg",
                                             width = "300px", height = "300px")),
-                            column(4, img(src = "thumbnail_IMG_E2596.jpg",
+                            column(3, img(src = "thumbnail_IMG_E2596.jpg",
                                        width = "300px", height = "300px")),
-                                    ))
+                            column(3, img(src = "thumbnail_IMG_8351.jpg",
+                                          width = "300px", height = "300px")),
+                                     ))
                     
               
            
