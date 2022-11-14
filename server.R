@@ -36,9 +36,12 @@ function(input, output) {
 
   
   
-  output$winners <- renderPrint({
+  output$Dogs <- renderTable({
+    
     
   })
+  
+
     }
   
     

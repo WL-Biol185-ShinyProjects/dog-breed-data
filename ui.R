@@ -46,7 +46,13 @@ navbarPage("Westminster Dog Show Data",
                                     "Select Dog Weight in kgs:",
                                     min = 2,
                                     max = 68,
-                                    value = 30
+                                    value = c(2,68)
+                                    ),
+                        sliderInput("Height",
+                                    "Select Dog Height in cms",
+                                    min= 17,
+                                    max=82,
+                                    value = c(17,81)
                                     )
                       ),
                       mainPanel(
