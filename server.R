@@ -31,7 +31,7 @@ function(input, output) {
       req(input$dogBreed)
       filter(finalDogData, Breed %in% input$dogBreed)
       })
-   ggplot(dogBreeds(), aes(Year, Breed)) + geom_point(show.legend = FALSE) + theme_hc() + ggtitle("TITLE") + scale_x_continuous(breaks = round(seq(min(finalDogData$Year), max(finalDogData$Year), by = 10)))
+   ggplot(dogBreeds(), aes(Year, Breed)) + geom_point(show.legend = FALSE) + theme_hc() + scale_x_continuous(breaks = round(seq(min(finalDogData$Year), max(finalDogData$Year), by = 10)))
   })
 
   

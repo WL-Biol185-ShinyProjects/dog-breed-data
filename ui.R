@@ -32,7 +32,7 @@ navbarPage("Westminster Dog Show Data",
                     ),
            tabPanel("Winners",
                     titlePanel("Browse Winning Dogs by Breed"),
-                    h5("Explore the history of the winners of the Westminster Dog Show from 1907 to 2017, selecting which breeds you would like to see. Click into the drop down, or type, to select which breeds you would like to see. Points on the plot will appear in the years that the selected breed(s) won."),
+                    h5("Explore the history of the winners of the Westminster Dog Show from 1907 to 2017. Click into the drop down, or type, to select which breeds you would like to see. Points on the plot will appear in the years that the selected breed(s) won."),
                     mainPanel(plotOutput("plot")),
                     sidebarPanel(
                       selectInput("dogBreed", "Filter by Breed",
