@@ -123,6 +123,18 @@ colnames(breedComp)[15] <- "Life Expectancy"
 colnames(breedComp)[16] <- "Group"
 ```
 
+Making table with win frequency
+```{r}
+dogBreedUnique <- table(breedComp$Breed)
+dogBreedUniqueDF <- data.frame(dogBreedUnique)
+colnames(dogBreedUniqueDF)[1] <- "Breed"
+dogBreedCompNarrow <- breedComp[c(2, 11, 13)]
+dogBreedJoin <- left_join(dogBreedUniqueDF, dogBreedCompNarrow, by = c("Breed"))
+colnames(dogBreedJoin)[2] <- "Win Frequency"
+breedWinStats <- unique(dogBreedJoin)
+```
+
+
 Rounding numbers to make them look pretty
 ```{r}
 is.num <- sapply(breedComp, is.numeric)
