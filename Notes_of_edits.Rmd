@@ -130,7 +130,7 @@ dogBreedUniqueDF <- data.frame(dogBreedUnique)
 colnames(dogBreedUniqueDF)[1] <- "Breed"
 dogBreedCompNarrow <- breedComp[c(2, 11, 13)]
 dogBreedJoin <- left_join(dogBreedUniqueDF, dogBreedCompNarrow, by = c("Breed"))
-colnames(dogBreedJoin)[2] <- "Win Frequency"
+colnames(dogBreedJoin)[2] <- "Frequency"
 breedWinStats <- unique(dogBreedJoin)
 ```
 
