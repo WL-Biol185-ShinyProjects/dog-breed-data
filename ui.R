@@ -33,7 +33,7 @@ navbarPage("Westminster Dog Show Data",
                     br(),
                     br(),
                    
-                    leafletOutput("map", height="70vh"),
+                    leafletOutput("map", height="70vh")
                     
                     ),
            tabPanel("Winners",
@@ -52,9 +52,11 @@ navbarPage("Westminster Dog Show Data",
                     br(),
                      mainPanel(
                         DT::dataTableOutput("Dogs")
-                      )
+                      ),
+                    sidebarPanel(
+                      plotOutput("regression")
                     )
-                    
+           )  
            ,
            
            tabPanel("About",
@@ -71,7 +73,7 @@ navbarPage("Westminster Dog Show Data",
                             column(3, img(src = "thumbnail_IMG_E2596.jpg",
                                        width = "300px", height = "300px")),
                             column(3, img(src = "thumbnail_IMG_8351.jpg",
-                                          width = "300px", height = "300px")),
+                                          width = "300px", height = "300px"))
                                      ))
                     
               

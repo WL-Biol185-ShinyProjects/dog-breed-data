@@ -38,11 +38,17 @@ function(input, output) {
 
   
   
-  output$Dogs <- renderDataTable(breedComp[c(1,2,11,13,15,16)], filter = 'top'
-    
-  )
+  output$Dogs <- renderDataTable(breedComp[c(1,2,11,13,15,16)], filter = 'top')
+  
+  output$regression <- renderPlot({
+    ggplot(breedWinStats, aes(Weight, Height, color = Frequency)) + geom_point()
+  })                                                              
+
   
 
-    }
+}
+
+
   
+
     
