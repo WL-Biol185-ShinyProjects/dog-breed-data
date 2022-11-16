@@ -33,7 +33,7 @@ navbarPage("Westminster Dog Show Data",
                     br(),
                     br(),
                    
-                    leafletOutput("map"),
+                    leafletOutput("map", height="70vh"),
                     
                     ),
            tabPanel("Winners",

@@ -12,7 +12,8 @@ function(input, output) {
   
   output$map <- renderLeaflet({
     leaflet(data=finalDogData) %>% 
-      addTiles() %>% 
+      addProviderTiles(provider = providers$NASAGIBS.ViirsEarthAtNight2012) %>% 
+      setView(0, 40, zoom =4) %>%
       addMarkers(
         lng = ~Longitude,
         lat = ~Latitude,
