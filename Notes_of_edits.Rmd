@@ -134,6 +134,10 @@ colnames(dogBreedJoin)[2] <- "Win Frequency"
 breedWinStats <- unique(dogBreedJoin)
 ```
 
+Removing unneeded Row from breedWinStats
+```{r}
+breedWinStats <-breedWinStats[-c(28,30), ]
+```
 
 Rounding numbers to make them look pretty
 ```{r}
