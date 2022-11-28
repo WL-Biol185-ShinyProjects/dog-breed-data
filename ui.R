@@ -30,9 +30,10 @@ navbarPage("Westminster Dog Show Data",
                     
                     h5("Explore the origins of your favorite Westminster Dog Show Winners through this interactive map. Hover over the blue pins to preview the breed, and click into any pin to see a picture, the dog's origin, and group. Click and drag the map to see different areas, and zoom in to see more breeds."),
                     br(),
-                    br(),
-                    br(),
-                   
+                    
+                    radioButtons(
+                      "mapTheme", "Map Theme:", choices = c("Dark mode", "Light mode"), selected = "Light mode"
+                    ),
                     leafletOutput("map", height="70vh")
                     
                     ),
@@ -61,7 +62,8 @@ navbarPage("Westminster Dog Show Data",
            )  
            ,
            
-           tabPanel("Comparison Plots"),
+           tabPanel("Comparison Plots",
+                    titlePanel("Extra Plots")),
            
            tabPanel("About",
                     titlePanel("Our story"),

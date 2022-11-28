@@ -12,7 +12,14 @@ function(input, output) {
   
   output$map <- renderLeaflet({
     leaflet(data=finalDogData) %>%
-      addProviderTiles(provider = providers$NASAGIBS.ViirsEarthAtNight2012) %>% 
+      if(input$mapTheme == "Dark mode"){
+          addProviderTiles(provider = providers$NASAGIBS.ViirsEarthAtNight2012)
+      } else {
+        if(input$mapTheme)
+        addTiles()
+        
+      } %>% 
+      
       setView(0, 40, zoom =4) %>%
       addMarkers(
         lng = ~Longitude,
@@ -24,7 +31,7 @@ function(input, output) {
                        '<img src="' , finalDogData$imageURL,'" 
       width=200
       height=200
-      />'), 
+      />') 
         )
   })
   
