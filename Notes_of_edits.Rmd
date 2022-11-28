@@ -135,6 +135,14 @@ colnames(dogBreedJoin)[2] <- "Frequency"
 breedWinStats <- unique(dogBreedJoin)
 ```
 
+Making table with group win frequency
+```{r}
+dogGroupTable <- table(breedComp$Group)
+dogGroupUnique <- data.frame(dogGroupTable)
+colnames(dogGroupUnique)[1] <- "Group"
+colnames(dogGroupUnique)[2] <- "Frequency"
+```
+
 Removing unneeded Row from breedWinStats
 ```{r}
 breedWinStats <-breedWinStats[-c(28,30), ]
