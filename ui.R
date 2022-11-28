@@ -40,26 +40,28 @@ navbarPage("Westminster Dog Show Data",
                     titlePanel("Browse Winning Dogs by Breed"),
                     h5("Explore the history of the winners of the Westminster Dog Show from 1907 to 2017. Click into the drop down, or type, to select which breeds you would like to see. Points on the plot will appear in the years that the selected breed(s) won."),
                     br(),
-                    mainPanel(plotOutput("plot")),
                     br(),
                     br(),
-                      sidebarPanel(
-                        selectInput("dogBreed", "Filter by Breed",
-                                  choices = finalDogData$Breed, selected = finalDogData$Breed[9], multiple = TRUE))
-                    )
-                    ,
+                     fluidRow(column(8, plotOutput("plot")),
+                              column(4, selectInput("dogBreed", "Filter by Breed",
+                                                    choices = finalDogData$Breed, 
+                                                    selected = finalDogData$Breed[9], 
+                                                    multiple = TRUE))
+           ),
+                    
+           ),    
            tabPanel("Breed Specifications",
                     titlePanel("Filter Winning Dogs by Breed Specifications"),
                     h5("Use filters under each column to sort through the winners by year of win, breed, height, weight, life expectancy and group."),
                     br(),
-                     mainPanel(
-                        DT::dataTableOutput("Dogs")
-                      ),
-                    sidebarPanel(
-                      downloadButton("downloadData", "Download")
-                    )
+                    fluidRow(column(8,  DT::dataTableOutput("Dogs")),
+                             column(4, downloadButton("downloadData", "Download")),
+                   ),
+                   
            )  
            ,
+           
+           tabPanel("Comparison Plots"),
            
            tabPanel("About",
                     titlePanel("Our story"),
