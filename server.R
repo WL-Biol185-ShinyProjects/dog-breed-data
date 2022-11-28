@@ -39,14 +39,14 @@ function(input, output) {
 
   
   
-  output$Dogs <- renderDataTable(breedComp[c(1,2,11,13,15,16)], filter = 'top')
+  output$Dogs <- renderDataTable(downloadDogs, filter = 'top')
   
   output$downloadData <- downloadHandler(
     filename = function() {
       paste("Dogs", Sys.Date(), ".csv", sep="")
     },
     content = function (file) {
-      write.csv (breedComp, file)
+      write.csv (downloadDogs, file)
     }
   )                                                          
 

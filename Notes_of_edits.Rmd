@@ -121,6 +121,7 @@ colnames(breedComp)[11] <- "Height"
 colnames(breedComp)[13] <- "Weight"
 colnames(breedComp)[15] <- "Life Expectancy"
 colnames(breedComp)[16] <- "Group"
+downloadDogs <- breedComp[c(1,2,11,13,15,16)]
 ```
 
 Making table with win frequency
