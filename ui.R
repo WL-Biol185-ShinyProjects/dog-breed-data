@@ -56,7 +56,7 @@ navbarPage("Westminster Dog Show Data",
                         DT::dataTableOutput("Dogs")
                       ),
                     sidebarPanel(
-                      plotOutput("regression")
+                      downloadButton("downloadData", "Download")
                     )
            )  
            ,

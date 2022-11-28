@@ -41,9 +41,14 @@ function(input, output) {
   
   output$Dogs <- renderDataTable(breedComp[c(1,2,11,13,15,16)], filter = 'top')
   
-  output$regression <- renderPlot({
-    ggplot(breedWinStats, aes(Weight, Height, color = Frequency)) + geom_point()
-  })                                                              
+  output$downloadData <- downloadHandler(
+    filename = function() {
+      paste("Dogs", Sys.Date(), ".csv", sep="")
+    },
+    content = function (file) {
+      write.csv (breedComp, file)
+    }
+  )                                                          
 
   
 
