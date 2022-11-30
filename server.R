@@ -75,9 +75,9 @@ function(input, output) {
       if(input$barData == "Temperament"){
       ggplot(breedWinStats, aes(Temperament, Frequency)) + geom_col() + theme(axis.text.x = element_text(angle = 60, hjust = 1))
       }
-     
-      }
-    
+      else{
+        ggplot(dogGroupUnique, aes(Group, Frequency)) + geom_col() + theme(axis.text.x = element_text(angle = 60, hjust = 1))
+      }}
     }
     
   )
