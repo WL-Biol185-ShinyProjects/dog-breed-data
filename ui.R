@@ -64,8 +64,9 @@ navbarPage("Westminster Dog Show Data",
            
            tabPanel("Comparison Plots",
                     titlePanel("Extra Plots"),
+                    plotOutput("Interactive"),
                     fluidRow(radioButtons(
-                      inputId = "barData", "X axis choices", choices = c("Group", "Temperament", "Origin"), selected = "Group")
+                      inputId = "barData", "X axis choices", choices = c("Origin", "Temperament", "Group"), selected = "Temperament")
                     
                     
                     

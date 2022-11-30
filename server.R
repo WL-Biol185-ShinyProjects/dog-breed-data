@@ -64,7 +64,23 @@ function(input, output) {
     content = function (file) {
       write.csv (downloadDogs, file)
     }
-  )                                                          
+  )
+  
+  
+  output$Interactive <- renderPlot({
+    if(input$barData == "Origin"){
+      ggplot(breedWinStats, aes(Origin, Frequency)) + geom_col()
+    }
+    else{
+      if(input$barData == "Temperament"){
+      ggplot(breedWinStats, aes(Temperament, Frequency)) + geom_col()
+      }
+     
+      }
+    
+    }
+    
+  )
 
   
 
