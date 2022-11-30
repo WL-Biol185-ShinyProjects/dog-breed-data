@@ -129,11 +129,12 @@ Making table with win frequency
 dogBreedUnique <- table(breedComp$Breed)
 dogBreedUniqueDF <- data.frame(dogBreedUnique)
 colnames(dogBreedUniqueDF)[1] <- "Breed"
-dogBreedCompNarrow <- breedComp[c(2, 9, 11, 13)]
+dogBreedCompNarrow <- breedComp[c(2, 3, 5, 9, 11, 13)]
 dogBreedJoin <- left_join(dogBreedUniqueDF, dogBreedCompNarrow, by = c("Breed"))
 colnames(dogBreedJoin)[2] <- "Frequency"
 breedWinStats <- unique(dogBreedJoin)
-colnames(breedWinStats)[3] <- "Temperament"
+colnames(breedWinStats)[5] <- "Temperament"
+colnames(breedWinStats)[4] <- "Origin"
 ```
 
 Making table with group win frequency
