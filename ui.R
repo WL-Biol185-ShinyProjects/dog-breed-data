@@ -24,7 +24,9 @@ navbarPage("Westminster Dog Show Data",
             color: #f9f8fc;
            }
                                }")),
-           theme = bs_theme(bootswatch = "flatly"),
+          
+            theme = bs_theme(bootswatch = "flatly"),
+           
            tabPanel("Map", 
                     titlePanel("Westminster Dog Show Winners and their Origins"),
                     
@@ -37,6 +39,7 @@ navbarPage("Westminster Dog Show Data",
                     leafletOutput("map", height="70vh")
                     
                     )),
+           
            tabPanel("Winners",
                     titlePanel("Browse Winning Dogs by Breed"),
                     h5("Explore the history of the winners of the Westminster Dog Show from 1907 to 2017. Click into the drop down, or type, to select which breeds you would like to see. Points on the plot will appear in the years that the selected breed(s) won."),
@@ -63,13 +66,12 @@ navbarPage("Westminster Dog Show Data",
            ,
            
            tabPanel("Comparison Plots",
-                    titlePanel("Extra Plots"),
+                    titlePanel("Comparison Plots"),
+                    h5("Compare winning frequency from 1907 to 2017 to three different Westminster Dog Show competitor statistics: origin, temperament, and group. Use the buttons below the x-axis to toggle between what statistic you are comparing to win frequency."),
                     plotOutput("Interactive"),
+                    br(),
                     fluidRow(radioButtons(
                       inputId = "barData", "X axis choices", choices = c("Origin", "Temperament", "Group"), selected = "Temperament")
-                    
-                    
-                    
                     )),
            
            tabPanel("About",
@@ -83,9 +85,9 @@ navbarPage("Westminster Dog Show Data",
                                            width = "300px", height = "300px")),
                              column(3,  img(src = "thumbnail_IMG_8312.jpg",
                                             width = "300px", height = "300px")),
-                            column(3, img(src = "thumbnail_IMG_E2596.jpg",
+                             column(3, img(src = "thumbnail_IMG_E2596.jpg",
                                        width = "300px", height = "300px")),
-                            column(3, img(src = "thumbnail_IMG_8351.jpg",
+                             column(3, img(src = "thumbnail_IMG_8351.jpg",
                                           width = "300px", height = "300px"))
                                      ))
                     
