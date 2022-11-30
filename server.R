@@ -69,11 +69,11 @@ function(input, output) {
   
   output$Interactive <- renderPlot({
     if(input$barData == "Origin"){
-      ggplot(breedWinStats, aes(Origin, Frequency)) + geom_col()
+      ggplot(breedWinStats, aes(Origin, Frequency)) + geom_col() + theme(axis.text.x = element_text(angle = 60, hjust = 1))
     }
     else{
       if(input$barData == "Temperament"){
-      ggplot(breedWinStats, aes(Temperament, Frequency)) + geom_col()
+      ggplot(breedWinStats, aes(Temperament, Frequency)) + geom_col() + theme(axis.text.x = element_text(angle = 60, hjust = 1))
       }
      
       }
