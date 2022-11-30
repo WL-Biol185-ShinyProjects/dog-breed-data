@@ -31,12 +31,12 @@ navbarPage("Westminster Dog Show Data",
                     h5("Explore the origins of your favorite Westminster Dog Show Winners through this interactive map. Hover over the blue pins to preview the breed, and click into any pin to see a picture, the dog's origin, and group. Click and drag the map to see different areas, and zoom in to see more breeds."),
                     br(),
                     
-                    radioButtons(
-                      "mapTheme", "Map Theme:", choices = c("Dark mode", "Light mode"), selected = "Light mode"
+                    fluidRow(radioButtons(
+                      inputId = "mapTheme", "Map Theme:", choices = c("Dark mode", "Light mode"), selected = "Light mode"
                     ),
                     leafletOutput("map", height="70vh")
                     
-                    ),
+                    )),
            tabPanel("Winners",
                     titlePanel("Browse Winning Dogs by Breed"),
                     h5("Explore the history of the winners of the Westminster Dog Show from 1907 to 2017. Click into the drop down, or type, to select which breeds you would like to see. Points on the plot will appear in the years that the selected breed(s) won."),
