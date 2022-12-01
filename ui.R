@@ -37,8 +37,8 @@ navbarPage("Westminster Dog Show Data",
                       inputId = "mapTheme", "Map Theme:", choices = c("Dark mode", "Light mode"), selected = "Light mode"
                     ),
                     leafletOutput("map", height="70vh")
-                    
                     )),
+                    br(),
            
            tabPanel("Winners",
                     titlePanel("Browse Winning Dogs by Breed"),
