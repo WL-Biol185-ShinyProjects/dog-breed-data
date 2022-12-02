@@ -71,6 +71,9 @@ navbarPage("Westminster Dog Show Data",
                     br(),
                     fluidRow(radioButtons(
                       inputId = "barData", "X axis choices", choices = c("Origin", "Temperament", "Group"), selected = "Temperament")),
+                   br(),
+                    titlePanel("Physical Characteristic Comparisons"),
+                    h5("Compare winning frequency from 1907 to 2017 to three physcial statistics: height, weight, and lifespan. Use the buttons below the x-axis to toggle between what statistic you are comparing to win frequency."),
                     plotOutput("Regression"),
                     fluidRow(radioButtons(
                         inputId = "regression", "X axis choices", choices = c("Height", "Weight", "Lifespan"), selected = "Height")
