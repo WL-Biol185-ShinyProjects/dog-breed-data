@@ -70,7 +70,10 @@ navbarPage("Westminster Dog Show Data",
                     plotOutput("Interactive"),
                     br(),
                     fluidRow(radioButtons(
-                      inputId = "barData", "X axis choices", choices = c("Origin", "Temperament", "Group"), selected = "Temperament")
+                      inputId = "barData", "X axis choices", choices = c("Origin", "Temperament", "Group"), selected = "Temperament")),
+                    plotOutput("Regression"),
+                    fluidRow(radioButtons(
+                        inputId = "regression", "X axis choices", choices = c("Height", "Weight", "Lifespan"), selected = "Height")
                     )),
            
            tabPanel("About",

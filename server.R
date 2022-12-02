@@ -71,18 +71,32 @@ function(input, output) {
     if(input$barData == "Origin"){
       ggplot(breedWinStats, aes(Origin, Frequency)) + geom_col() + theme_hc() + theme(plot.background = element_rect(fill = "#E6E6FA")) + theme(axis.text.x = element_text(angle = 60, hjust = 1))
     }
-    else{
+    else {
       if(input$barData == "Temperament"){
-      ggplot(breedWinStats, aes(Temperament, Frequency)) + geom_col() + theme_hc() + theme(plot.background = element_rect(fill = "#E6E6FA")) + theme(axis.text.x = element_text(angle = 60, hjust = 1))
+        ggplot(breedWinStats, aes(Temperament, Frequency)) + geom_col() + theme_hc() + theme(plot.background = element_rect(fill = "#E6E6FA")) + theme(axis.text.x = element_text(angle = 60, hjust = 1))
       }
-      else{
+      else {
         ggplot(dogGroupUnique, aes(Group, Frequency)) + geom_col() + theme_hc() + theme(plot.background = element_rect(fill = "#E6E6FA")) + theme(axis.text.x = element_text(angle = 60, hjust = 1))
       }}
     }
     
   )
-
   
+  output$Regression <- renderPlot({
+    if(input$regression == "Height"){
+      ggplot(breedWinStats, aes(Height, Frequency)) + geom_point() + theme_hc() + theme(plot.background = element_rect(fill = "#E6E6FA"))
+    }
+    else {
+      if(input$regression == "Weight"){
+        ggplot(breedWinStats, aes(Weight, Frequency)) + geom_point() + theme_hc() + theme(plot.background = element_rect(fill = "#E6E6FA"))
+      }
+      else {
+        ggplot(breedWinStats, aes(Lifespan, Frequency)) + geom_point() + theme_hc() + theme(plot.background = element_rect(fill = "#E6E6FA"))
+      }
+    }
+  })
+
+
 
 }
 
