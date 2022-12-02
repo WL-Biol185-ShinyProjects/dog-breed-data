@@ -135,6 +135,7 @@ colnames(dogBreedJoin)[2] <- "Frequency"
 breedWinStats <- unique(dogBreedJoin)
 colnames(breedWinStats)[4] <- "Temperament"
 colnames(breedWinStats)[3] <- "Origin"
+colnames(breedWinStats)[7] <- "Lifespan"
 ```
 
 Making table with group win frequency
