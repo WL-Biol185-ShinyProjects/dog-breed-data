@@ -73,7 +73,6 @@ Deleting row for tidy data
 tidywestminster <- tidywestminster[-c(17), ]
 ```
 
-
 Joining the Tidywestminter with coordinates
 ```{r}
 tidywestminster = subset(tidywestminster, select = -c(origin))
@@ -91,7 +90,6 @@ finalDogData$Longitude[is.na(finalDogData$Longitude)] <- 13.404954
 Turning links into html
 ```{r include=FALSE}
 paste('<img src="' , finalDogData$imageURL, '" />')
-
 ```
 
 Joining finalDogData with akc for height and weight characteristics
