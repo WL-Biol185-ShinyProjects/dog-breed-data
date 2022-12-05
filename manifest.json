@@ -3495,6 +3495,9 @@
     "dropdown.R": {
       "checksum": "d32a8351c55cd16d7fe1ca70be746780"
     },
+    "global.R": {
+      "checksum": "379997d2ed88103027af954e65a50214"
+    },
     "LICENSE": {
       "checksum": "1ebbd3e34237af26da5dc08a4e440464"
     },
@@ -3503,6 +3506,9 @@
     },
     "map.R": {
       "checksum": "c956ec926eb11ba09d7f78898565e054"
+    },
+    "Notes_of_edits.R": {
+      "checksum": "a55768137fd01d8605f0ebb9582d10cf"
     },
     "Notes_of_edits.Rmd": {
       "checksum": "983aa83187cc6d1bddad3b01122c4fc9"
@@ -3514,7 +3520,7 @@
       "checksum": "889943afbd3f24974b1f1d9af1107715"
     },
     "server.R": {
-      "checksum": "8d000709e1ab3a11b8006d64dfb25298"
+      "checksum": "0669b339e549622846cdf817a07eb6f3"
     },
     "ui.R": {
       "checksum": "b1cb80663f046e46f8ef2ce1db9b9833"
