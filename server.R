@@ -7,6 +7,7 @@ library(DT)
 
 #DEFINING SERVER LOGIC 
 
+
 function(input, output) {
 
   #CREATING A MAP WITH LIGHT AND DARK MODES
