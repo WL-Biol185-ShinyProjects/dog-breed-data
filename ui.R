@@ -56,7 +56,7 @@ navbarPage("Westminster Dog Show Data",
           tabPanel("Winners",
                     titlePanel("Browse Winning Dogs by Breed"),
                     
-                    h5("Explore the history of the winners of the Westminster Dog Show from 1907 to 2017. Click into the drop down, or type, to select which breeds you would like to see. Points on the plot will appear in the years that the selected breed(s) won."),
+                    h5("Explore the history of the winners of the Westminster Dog Show from 1907 to 2017. Click into the drop down, or type, to select which breeds you would like to see. Points on the plot will appear in the years that the selected breed(s) won. Hover over each point to see the breed and year!"),
                       
                       br(),
                       br(),
@@ -65,7 +65,7 @@ navbarPage("Westminster Dog Show Data",
                     fluidRow(column(8, plotlyOutput("plot")),
                             column(4, selectInput("dogBreed", "Filter by Breed",
                                                   choices = finalDogData$Breed, 
-                                                  selected = finalDogData$Breed[9], 
+                                                  selected = finalDogData$Breed[80], 
                                                   multiple = TRUE))
            ),
            ),  

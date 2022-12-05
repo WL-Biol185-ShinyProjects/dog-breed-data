@@ -66,10 +66,10 @@ function(input, output) {
       plot5 <- ggplot(dogBreeds(), 
              aes(Year, Breed,)) + 
              geom_point(show.legend = FALSE, color = 'black') + 
-             theme_hc() + 
-             theme(plot.background = element_rect(fill = "#E6E6FA")) + 
-             scale_x_continuous(breaks = round(seq(min(finalDogData$Year), max(finalDogData$Year), by = 10)))
-      ggplotly(plot5) 
+             theme_classic() + 
+             theme(panel.background = element_rect(fill = "#E6E6FA")) + 
+             scale_x_continuous(breaks = round(seq(min(finalDogData$Year), max(finalDogData$Year), by = 10))) 
+      ggplotly(plot5, height = 900)
   })
 
   #RENDERING THE DATA TABLE
