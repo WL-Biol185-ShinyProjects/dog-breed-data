@@ -4,6 +4,7 @@ library(ggplot2)
 library(dplyr)
 library(ggthemes)
 library(DT)
+library(plotly)
 
 #DEFINING SERVER LOGIC 
 
@@ -56,18 +57,19 @@ function(input, output) {
   
   #CREATING A REACTIVE PLOT
   
-  output$plot <- renderPlot({
+  output$plot <- renderPlotly({
       dogBreeds <- reactive({
                       req(input$dogBreed)
                       filter(finalDogData, Breed %in% input$dogBreed)
       })
       
-      ggplot(dogBreeds(), 
+      plot5 <- ggplot(dogBreeds(), 
              aes(Year, Breed,)) + 
              geom_point(show.legend = FALSE, color = 'black') + 
              theme_hc() + 
              theme(plot.background = element_rect(fill = "#E6E6FA")) + 
              scale_x_continuous(breaks = round(seq(min(finalDogData$Year), max(finalDogData$Year), by = 10)))
+      ggplotly(plot5) 
   })
 
   #RENDERING THE DATA TABLE

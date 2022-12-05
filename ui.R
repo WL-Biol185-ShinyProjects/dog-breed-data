@@ -5,6 +5,7 @@ library(shinyWidgets)
 library(shinythemes)
 library(bslib)
 library(DT)
+library(plotly)
 
 #FLUID PAGE SET UP
 
@@ -61,7 +62,7 @@ navbarPage("Westminster Dog Show Data",
                       br(),
                       br(),
                     
-                    fluidRow(column(8, plotOutput("plot")),
+                    fluidRow(column(8, plotlyOutput("plot")),
                             column(4, selectInput("dogBreed", "Filter by Breed",
                                                   choices = finalDogData$Breed, 
                                                   selected = finalDogData$Breed[9], 
