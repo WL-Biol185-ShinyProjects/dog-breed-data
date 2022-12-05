@@ -13,9 +13,10 @@ Creating variables for clean data
 ```{r}
 library(readxl)
 library(jsonlite)
-akcData <- read.csv("akc-data-latest.csv")
-westminsterData <- read_excel("Westminster_data_clean.xlsx")
-dogOriginData <- fromJSON("dog-breeds.json")
+
+akcData          <- read.csv("akc-data-latest.csv")
+westminsterData  <- read_excel("Westminster_data_clean.xlsx")
+dogOriginData    <- fromJSON("dog-breeds.json")
 breedCoordinates <- read_excel("Breedcoordinates1.xlsx")
 ```
 
@@ -26,7 +27,11 @@ westminsterData = subset(westminsterData, select = -c(Owner, Winner))
 
 Removing unneeded Columns from AKC Data
 ```{r}
-akcData = subset(akcData, select = -c(description, popularity, grooming_frequency_value, grooming_frequency_category, shedding_value, shedding_category, energy_level_value, trainability_value, trainability_category, demeanor_value, energy_level_category, demeanor_category))
+akcData = subset(akcData, 
+                 select = -c(description, popularity, grooming_frequency_value, 
+                 grooming_frequency_category, shedding_value, shedding_category, 
+                 energy_level_value, trainability_value, trainability_category, demeanor_value, 
+                 energy_level_category, demeanor_category))
 ```
 
 Removing unneeded Row from AKC Data
@@ -36,25 +41,25 @@ akcData <- akcData[-c(237, 17, 56, 245), ]
 
 Changing values in westminster Dataset to match origin. gsub() didn't help because often order was flipped
 ```{r}
-westminsterData[westminsterData=="Fox Terrier (Smooth)"] <- "Fox Terrier, Smooth"
-westminsterData[westminsterData=="Fox Terrier (Wire)"] <- "Fox Terrier, Wire"
-westminsterData[westminsterData=="Beagle (15 Inch)"] <- "Beagle"
-westminsterData[westminsterData=="Spaniel (Cocker) Black[B]"] <- "English Cocker Spaniel"
-westminsterData[westminsterData=="Spaniel (Cocker) ASCOB[B]"] <- "English Cocker Spaniel"
-westminsterData[westminsterData=="Spaniel (Irish Water)"] <- "Irish Water Spaniel"
-westminsterData[westminsterData=="Bichon Frise"] <- "Bichon Frisé"
-westminsterData[westminsterData=="Bull Terrier (White)"] <- "Bull Terrier"
-westminsterData[westminsterData=="Collie (Rough)"] <- "Collie, Rough"
-westminsterData[westminsterData=="Poodle (Toy)"] <- "Poodle"
-westminsterData[westminsterData=="Spaniel (Cocker) Parti"] <- "English Cocker Spaniel"
-westminsterData[westminsterData=="Spaniel (Clumber)"] <- "English Cocker Spaniel"
-westminsterData[westminsterData=="Poodle (Standard)"] <- "Poodle"
-westminsterData[westminsterData=="Poodle (Miniature)"] <- "Poodle"
-westminsterData[westminsterData=="Bull Terrier (Colored)"] <- "Bull Terrier"
-westminsterData[westminsterData=="German Shepherd"] <- "German Shepherd Dog"
+westminsterData[westminsterData=="Fox Terrier (Smooth)"]         <- "Fox Terrier, Smooth"
+westminsterData[westminsterData=="Fox Terrier (Wire)"]           <- "Fox Terrier, Wire"
+westminsterData[westminsterData=="Beagle (15 Inch)"]             <- "Beagle"
+westminsterData[westminsterData=="Spaniel (Cocker) Black[B]"]    <- "English Cocker Spaniel"
+westminsterData[westminsterData=="Spaniel (Cocker) ASCOB[B]"]    <- "English Cocker Spaniel"
+westminsterData[westminsterData=="Spaniel (Irish Water)"]        <- "Irish Water Spaniel"
+westminsterData[westminsterData=="Bichon Frise"]                 <- "Bichon Frisé"
+westminsterData[westminsterData=="Bull Terrier (White)"]         <- "Bull Terrier"
+westminsterData[westminsterData=="Collie (Rough)"]               <- "Collie, Rough"
+westminsterData[westminsterData=="Poodle (Toy)"]                 <- "Poodle"
+westminsterData[westminsterData=="Spaniel (Cocker) Parti"]       <- "English Cocker Spaniel"
+westminsterData[westminsterData=="Spaniel (Clumber)"]            <- "English Cocker Spaniel"
+westminsterData[westminsterData=="Poodle (Standard)"]            <- "Poodle"
+westminsterData[westminsterData=="Poodle (Miniature)"]           <- "Poodle"
+westminsterData[westminsterData=="Bull Terrier (Colored)"]       <- "Bull Terrier"
+westminsterData[westminsterData=="German Shepherd"]              <- "German Shepherd Dog"
 westminsterData[westminsterData=="Pointer (German Shorthaired)"] <- "Pointer"
-westminsterData[westminsterData=="Setter (English)"] <- "English Setter"
-westminsterData[westminsterData=="Spaniel (English Springer)"] <- "English Springer Spaniel"
+westminsterData[westminsterData=="Setter (English)"]             <- "English Setter"
+westminsterData[westminsterData=="Spaniel (English Springer)"]   <- "English Springer Spaniel"
 ```
 
 Changing column name to join
@@ -76,15 +81,17 @@ tidywestminster <- tidywestminster[-c(17), ]
 Joining the Tidywestminter with coordinates
 ```{r}
 tidywestminster = subset(tidywestminster, select = -c(origin))
-tidywestminster[tidywestminster=="Germany, France"] <- "Germany"
-tidywestminster[tidywestminster=="Germany, Poland"] <- "Poland"
-tidywestminster[tidywestminster=="Spain, Belgium, France"] <- "France"
-tidywestminster[tidywestminster=="Spain, Belgium"] <- "Spain"
+      tidywestminster[tidywestminster=="Germany, France"]        <- "Germany"
+      tidywestminster[tidywestminster=="Germany, Poland"]        <- "Poland"
+      tidywestminster[tidywestminster=="Spain, Belgium, France"] <- "France"
+      tidywestminster[tidywestminster=="Spain, Belgium"]         <- "Spain"
+
 finalDogData <- left_join(tidywestminster, breedCoordinates, by = c("Breed"))
-finalDogData$origin[is.na(finalDogData$origin)] <- "Germany"
+
+finalDogData$origin[is.na(finalDogData$origin)]           <- "Germany"
 finalDogData$Coordinates[is.na(finalDogData$Coordinates)] <- "52.520008, 13.404954"
-finalDogData$Latitude[is.na(finalDogData$Latitude)] <- 52.52001
-finalDogData$Longitude[is.na(finalDogData$Longitude)] <- 13.404954
+finalDogData$Latitude[is.na(finalDogData$Latitude)]       <- 52.52001
+finalDogData$Longitude[is.na(finalDogData$Longitude)]     <- 13.404954
 ```
 
 Turning links into html
@@ -94,54 +101,64 @@ paste('<img src="' , finalDogData$imageURL, '" />')
 
 Joining finalDogData with akc for height and weight characteristics
 ```{r}
-akcData[akcData=="Smooth Fox Terrier"] <- "Fox Terrier, Smooth"
-akcData[akcData=="Wire Fox Terrier"] <- "Fox Terrier, Wire"
-akcData[akcData=="Beagle (15 Inch)"] <- "Beagle"
-akcData[akcData=="Spaniel (Cocker) Black[B]"] <- "English Cocker Spaniel"
-akcData[akcData=="Spaniel (Cocker) ASCOB[B]"] <- "English Cocker Spaniel"
-akcData[akcData=="Spaniel (Irish Water)"] <- "Irish Water Spaniel"
-akcData[akcData=="Bichon Frise"] <- "Bichon Frisé"
-akcData[akcData=="Bull Terrier (White)"] <- "Bull Terrier"
-akcData[akcData=="Collie"] <- "Collie, Rough"
-akcData[akcData=="Poodle (Toy)"] <- "Poodle"
-akcData[akcData=="Spaniel (Cocker) Parti"] <- "English Cocker Spaniel"
-akcData[akcData=="Spaniel (Clumber)"] <- "English Cocker Spaniel"
-akcData[akcData=="Poodle (Standard)"] <- "Poodle"
-akcData[akcData=="Poodle (Miniature)"] <- "Poodle"
-akcData[akcData=="Bull Terrier (Colored)"] <- "Bull Terrier"
-akcData[akcData=="German Shepherd"] <- "German Shepherd Dog"
+akcData[akcData=="Smooth Fox Terrier"]           <- "Fox Terrier, Smooth"
+akcData[akcData=="Wire Fox Terrier"]             <- "Fox Terrier, Wire"
+akcData[akcData=="Beagle (15 Inch)"]             <- "Beagle"
+akcData[akcData=="Spaniel (Cocker) Black[B]"]    <- "English Cocker Spaniel"
+akcData[akcData=="Spaniel (Cocker) ASCOB[B]"]    <- "English Cocker Spaniel"
+akcData[akcData=="Spaniel (Irish Water)"]        <- "Irish Water Spaniel"
+akcData[akcData=="Bichon Frise"]                 <- "Bichon Frisé"
+akcData[akcData=="Bull Terrier (White)"]         <- "Bull Terrier"
+akcData[akcData=="Collie"]                       <- "Collie, Rough"
+akcData[akcData=="Poodle (Toy)"]                 <- "Poodle"
+akcData[akcData=="Spaniel (Cocker) Parti"]       <- "English Cocker Spaniel"
+akcData[akcData=="Spaniel (Clumber)"]            <- "English Cocker Spaniel"
+akcData[akcData=="Poodle (Standard)"]            <- "Poodle"
+akcData[akcData=="Poodle (Miniature)"]           <- "Poodle"
+akcData[akcData=="Bull Terrier (Colored)"]       <- "Bull Terrier"
+akcData[akcData=="German Shepherd"]              <- "German Shepherd Dog"
 akcData[akcData=="Pointer (German Shorthaired)"] <- "Pointer"
-akcData[akcData=="Setter (English)"] <- "English Setter"
-akcData[akcData=="Spaniel (English Springer)"] <- "English Springer Spaniel"
+akcData[akcData=="Setter (English)"]             <- "English Setter"
+akcData[akcData=="Spaniel (English Springer)"]   <- "English Springer Spaniel"
+
 colnames(akcData)[1] <- "Breed"
+
 breedComp <- left_join(finalDogData, akcData, by = c("Breed"))
-colnames(breedComp)[11] <- "Height"
-colnames(breedComp)[13] <- "Weight"
-colnames(breedComp)[15] <- "Life Expectancy"
-colnames(breedComp)[16] <- "Group"
+     colnames(breedComp)[11] <- "Height"
+     colnames(breedComp)[13] <- "Weight"
+     colnames(breedComp)[15] <- "Life Expectancy"
+     colnames(breedComp)[16] <- "Group"
+```
+
+Naming dataframe for download button
+```{r}
 downloadDogs <- breedComp[c(1,2,11,13,15,16)]
 ```
 
 Making table with win frequency
 ```{r}
-dogBreedUnique <- table(breedComp$Breed)
+dogBreedUnique   <- table(breedComp$Breed)
 dogBreedUniqueDF <- data.frame(dogBreedUnique)
-colnames(dogBreedUniqueDF)[1] <- "Breed"
+    colnames(dogBreedUniqueDF)[1] <- "Breed"
+
 dogBreedCompNarrow <- breedComp[c(2, 5, 9, 11, 13, 15)]
+
 dogBreedJoin <- left_join(dogBreedUniqueDF, dogBreedCompNarrow, by = c("Breed"))
-colnames(dogBreedJoin)[2] <- "Frequency"
+    colnames(dogBreedJoin)[2] <- "Frequency"
+
 breedWinStats <- unique(dogBreedJoin)
-colnames(breedWinStats)[4] <- "Temperament"
-colnames(breedWinStats)[3] <- "Origin"
-colnames(breedWinStats)[7] <- "Lifespan"
+    colnames(breedWinStats)[4] <- "Temperament"
+    colnames(breedWinStats)[3] <- "Origin"
+    colnames(breedWinStats)[7] <- "Lifespan"
 ```
 
 Making table with group win frequency
 ```{r}
-dogGroupTable <- table(breedComp$Group)
+dogGroupTable  <- table(breedComp$Group)
+
 dogGroupUnique <- data.frame(dogGroupTable)
-colnames(dogGroupUnique)[1] <- "Group"
-colnames(dogGroupUnique)[2] <- "Frequency"
+     colnames(dogGroupUnique)[1] <- "Group"
+     colnames(dogGroupUnique)[2] <- "Frequency"
 ```
 
 Removing unneeded Row from breedWinStats
@@ -152,8 +169,6 @@ breedWinStats <-breedWinStats[-c(28,30), ]
 Rounding numbers to make them look pretty
 ```{r}
 is.num <- sapply(breedComp, is.numeric)
+
 breedComp[is.num] <- lapply(breedComp[is.num], round, 1)
 ```
-
-
-
